@@ -8,6 +8,8 @@ Using mpd for multimedia server and python tornado for WebUI
 Note: The project is in early alfa!
 
 
-Here are some short demos
+* Demo
+
 ![Starting the car](https://github.com/l4m3rx/carpino/blob/master/media/1.gif?raw=true)
+
 ![Driving around](https://github.com/l4m3rx/carpino/blob/master/media/2.gif?raw=true)
