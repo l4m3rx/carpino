@@ -1,0 +1,59 @@
+#!/bin/sh
+# Start/stop/restart CarPC Project Daemons
+
+LOG_DIR="/opt/carpino/logs"
+ERR_LOG="${LOG_DIR}/error.log"
+DEV="/dev/ttyUSB0"
+
+# Start carpcp
+carpino_start() {
+  if ! [ -e $DEV ]; then
+    echo "$0: Cannot start [$DEV] missing"
+    exit 1
+  else
+    /bin/chmod 777 $DEV || echo "Failed to fix $DEV premissions"
+  fi
+
+  echo "$0: Starting CarPCP_wan..."
+  su - carpcp -c "/opt/carpino/carpino-web.py >> ${LOG_DIR}/carpcp-web.log 2>> $ERR_LOG &"
+  sleep 3
+  echo "$0: Starting CarPCP_can..."
+  su - carpcp -c "/opt/carpino/carpino-can.py >> ${LOG_DIR}/can.log.$RANDOM 2>>$ERR_LOG &"
+}
+
+# Stop carpcp
+carpino_stop() {
+  echo "$0: Stopping carpino_web & carpino_can..."
+  kill `ps uax | grep carpino | grep -v grep | grep -v rc.carpino | awk '{print $2}'` 2>/dev/null
+}
+
+# Restart carcpc
+carpino_restart() {
+  carpino_stop
+  sleep 1
+  carpino_start
+}
+
+# Status of carcpc
+carpino_status() {
+  echo "Running processes:"
+  echo "   " `ps aux | grep carpino | grep -v grep | awk '{print $11}'`
+}
+
+
+case "$1" in
+'start')
+  carpino_start
+  ;;
+'stop')
+  carpino_stop
+  ;;
+'status')
+  carpino_status
+  ;;
+'restart')
+  carpno_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart|status"
+esac

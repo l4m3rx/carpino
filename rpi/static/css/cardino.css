@@ -1,0 +1,20 @@
+#throttle {
+  width: 95%;
+  height: 8px;
+  position: relative;
+}
+
+.gauge {
+  margin: -40px 0px -40px 0px;
+  height: 180px;
+  width: 270px;
+}
+
+.size-big {
+  height: 230px;
+}
+
+.size-small {
+  width: 120px;
+}
+
