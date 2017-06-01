@@ -14,7 +14,18 @@
   height: 230px;
 }
 
+.size-medium {
+  width: 190px;
+  margin: -20px 0px 0px 0px;
+}
+
 .size-small {
-  width: 120px;
+  width: 150px;
+  margin: 0px 0px 0px 0px;
+}
+
+.g-img {
+  -webkit-filter: opacity(30%);
+  filter: opacity(30%);
 }
 

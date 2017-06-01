@@ -1,0 +1,55 @@
+#!/bin/sh
+# Start/stop/restart hostapd.
+
+HOSTAPD_PID="/var/run/hostapd.pid"
+HOSTAPD_CONF="/etc/hostapd/hostapd.conf"
+
+# Start hostapd:
+hostapd_start() {
+  /usr/bin/hostapd -B -P ${HOSTAPD_PID} ${HOSTAPD_CONF} &> /dev/null
+  echo -n "Starting HOSTAPD daemon..."
+  echo
+}
+
+# Stop hostapd:
+hostapd_stop() {
+  echo -n "Stopping HOSTAPD daemon..."
+  echo
+  if [ -f ${HOSTAPD_PID} ]; then
+    kill `cat ${HOSTAPD_PID}` &> /dev/null
+  fi
+}
+
+# Restart hostapd:
+hostapd_restart() {
+  hostapd_stop
+  sleep 2
+  hostapd_start
+}
+
+# Check if hostapd is running
+hostapd_status() {
+  if [ -e /var/run/hostapd.pid ]; then
+    echo "hostapd is running."
+  else 
+    echo "hostapd is stopped."
+    exit 1
+  fi
+}
+
+case "$1" in
+'start')
+  hostapd_start
+  ;;
+'stop')
+  hostapd_stop
+  ;;
+'restart')
+  hostapd_restart
+  ;;
+'status')
+  hostapd_status
+  ;;
+*)
+  echo "usage $0 start|stop|restart|status"
+esac

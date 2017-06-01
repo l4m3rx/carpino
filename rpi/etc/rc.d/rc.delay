@@ -1,0 +1,19 @@
+#!/bin/sh
+# 
+# This script is used to delay-start some stuff.
+# There's probably a better way, but i preffer KISS
+#
+
+
+# 5 seconds delay
+sleep 5
+echo "$0: 5 seconds marker."
+
+# Some mpd settings
+/usr/bin/mpc play
+/usr/bin/mpc random on
+
+#sleep 55
+#echo "rc.delay: 1 minute marker."
+
+echo "$0: ended"

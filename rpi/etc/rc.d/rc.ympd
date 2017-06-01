@@ -1,0 +1,43 @@
+#!/bin/sh
+# Start/stop/restart ympd
+
+# Daemon settings
+WEBADDR="0.0.0.0:7351"
+RUSER="mpd"
+# mpd settings
+MPDHOST="127.0.0.1"
+MPDPORT="6600"
+
+# Start ympd
+ympd_start() {
+  echo "Starting: ympd -w $WEBADDR -h $MPDHOST -p $MPDPORT"
+  /usr/bin/sudo -H -u mpd bash -c "/usr/bin/ympd -w $WEBADDR  -h $MPDHOST -p $MPDPORT &" 2>/dev/null
+}
+
+# Stop ympd
+ympd_stop() {
+  echo "Stopping ympd..."
+  killall ympd
+}
+
+# Restart hostapd:
+ympd_restart() {
+  ympd_stop
+  sleep 1
+  ympd_start
+}
+
+
+case "$1" in
+'start')
+  ympd_start
+  ;;
+'stop')
+  ympd_stop
+  ;;
+'restart')
+  ympd_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac

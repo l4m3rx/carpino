@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # Author:	Georgi Kolev
-# Name:		carpino-can
+# Name:		carcpc-can
 # Version:	0.99f
 #
 
@@ -155,7 +155,6 @@ while True:
             if not res: continue  # Skip unknown/empty
             if res.startswith('mpd='):  # mpd commands
                 mpd_queue.put(res.split('=')[-1])
-                print 'putting'
             # Push data to WebSocket
             ws.send(pack_data(res))
 # eof

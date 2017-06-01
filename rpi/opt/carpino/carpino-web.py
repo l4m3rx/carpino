@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # Author:	Georgi Kolev
-# Name:		carpino-web
+# Name:		carcpc-web
 # Version:	0.99c
 #
 

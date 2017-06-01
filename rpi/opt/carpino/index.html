@@ -19,27 +19,30 @@
   <script type="text/javascript" src="{{ static_url("js/jquery.tmpl.min.js") }}"></script>
   <link rel="icon" type="image/x-icon" href="{{ static_url("favicon.ico") }}">
 </head>
-<body>
+<body background='{{ static_url("images/bg.jpg") }}'>
+
+<br />
 
   <div class="container">
       <div class="row">
         <div class="span12">
-          <table class="table table-striped table-bordered table-condensed">
+            <!-- <table class="table table-striped table-bordered table-condensed"> -->
+          <table class="table table-condensed">
             <tr></tr>
             <tr>
               <td colspan='2' width="30%">
 	          <div id="speedg" class="gauge size-big"></div>
               </td>
               <td colspan='2' style="text-align: center;" width='40%'>
-                  <table class="table table-striped table-bordered table-condensed" width='100%'>
+                  <!-- <table class="table table-striped table-bordered table-condensed" width='100%'> -->
+                  <table class="table table-condensed" width='100%'>
                      <tr>
-                        <td width='25%' style="text-align: center;">
-                            <img src="{{ static_url("images/key.png") }}" alt="" style="width:auto; height:24px;">
+                        <td width='50%' colspan='2' style="text-align: center;">
+                            <img id="key_status" class="g-img" src="{{ static_url("images/key.png") }}" alt="" style="width:auto; height:24px;">
                         </td>
-                        <td width='25%' style="text-align: center;" id="key_status"> -- </td>
                         <td width='25%' style="text-align: center;" > 
                             <img src="{{ static_url("images/engine.png") }}" alt="" style="width:auto; height:24px;">
-			</td>
+			            </td>
                         <td width='25%' style="text-align: center;" id="engine_status"> -- </td>
                      </tr>
                      <tr>
@@ -58,19 +61,19 @@
                         <td width='25%' style="text-align: center;">
                             <img src="{{ static_url("images/steering_wheel.png") }}" alt="" style="width:auto; height:24px;">
                         </td>
-                        <td width='25%' style="text-align: center;" id="steering_wheel"> -- </td>
-			<td width='25%' style="text-align: center;"><b>R</b></td>
-                        <td width='25%' style="text-align: center;" id="reverse"> -- </td>
+                        <td width='50%' colspan='2' style="text-align: center;" id="wheel_position"> -- </td>
+                        <td width='25%' style="text-align: center;">  ° </td>
                      </tr>
                      <tr>
                         <td width='25%' style="text-align: center;">
-                            <img src="{{ static_url("images/handbrake.png") }}" alt="" style="width:auto; height:24px;">
+                            <img id="handbrake" class="g-img" src="{{ static_url("images/handbrake.png") }}" alt="" style="width:auto; height:24px;">
                         </td>
-                        <td width='25%' style="text-align: center;" id="handbrake"> -- </td>
+                        <td width='50%' colspan='2' style="text-align: center;">
+                            <img id="reverse" class="g-img" src="{{ static_url("images/reverse.png") }}" alt="" style="width:auto; height:24px;">
+                        </td>
                         <td width='25%' style="text-align: center;">
-                            <img src="{{ static_url("images/brakes.png") }}" alt="" style="width:auto; height:24px;">
+                            <img id="brakes" class="g-img" src="{{ static_url("images/brakes.png") }}" alt="" style="width:auto; height:24px;">
                         </td>
-			<td width='25%' style="text-align: center;" id="brakes"> -- </td>
                      </tr>
 		  </table>
               </td>
@@ -101,68 +104,50 @@
             </tr>
           </table>
 
-          <table class="table table-striped table-bordered table-condensed">
+          <!-- <table class="table table-striped table-bordered table-condensed"> -->
+          <table class="table table-striped table-condensed">
             <tr>
             </tr>
             <tr>
-              <td width='30%' colspan='2' style="text-align: center;">
-	          <div id="cpug" class="gauge size-big"></div>
+              <td width='20%' colspan='2' style="text-align: center;">
+	            <div id="coolantg" class="gauge size-medium"></div>
               </td>
-              <td width='30%' colspan='2' style="text-align: center;">
-		  <div id="coolantg" class="gauge size-big"></div>
-	      </td>
-	      <td width='15%' style="text-align: center;">
-		 <table border=0>
-	           <tr>
-	 	     <td>
-		       <div id="intempg" class="gauge size-small"></div>
-	             </td>
-		   </tr>
-		     <td>
+              <td width='20%' colspan='2' style="text-align: center;">
+		        <div id="cpug" class="gauge size-medium"></div>
+	          </td>
+	          <td width='15%' style="text-align: center;">
+		        <div id="intempg" class="gauge size-small"></div>
+	           </td>
+	          <td width='15%' style="text-align: center;">
 		       <div id="outtempg" class="gauge size-small"></div>
 		     </td>
-		   </tr>
-		 </table>
-	      </td>
-	      <td widht='25%' style="text-align: center;">
-                  <table class="table table-striped table-bordered table-condensed" width='100%'>
+	      <td widht='30%' style="text-align: center;">
+              <!-- <table class="table table-striped table-bordered table-condensed" width='100%'> -->
+                  <table class="table table-striped" width='100%'>
 	               <tr>
-                          <td width='50%' style="text-align: center;">
-                             <img src="{{ static_url("images/hazard_lights.png") }}" alt="" style="width:auto; height:24px;">
-                          </td>
-			  <td width='50%' style="text-align: center;" id='full_beam'> -- </td>
-		       </tr>
+                       <td style="text-align: center;">
+                          <img id="dip_beam" class="g-img"  src="{{ static_url("images/dip_beam.png") }}" alt="" style="width:auto; height:24px;">
+                       </td>
+                       <td style="text-align: center;">
+                          <img id="hazard_lights" class="g-img" src="{{ static_url("images/hazard_lights.png") }}" alt="" style="width:auto; height:24px;">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td style="text-align: center;">
+                          <img id="main_beam" class="g-img" src="{{ static_url("images/main_beam.png") }}" alt="" style="width:auto; height:24px;">
+                       </td>
+                       <td style="text-align: center;">
+                          <img id="full_beam" class="g-img"  src="{{ static_url("images/full_beam.png") }}" alt="" style="width:auto; height:24px;">
+                       </td>
+		           </tr>
 	               <tr>
-                          <td width='50%' style="text-align: center;">
-                             <img src="{{ static_url("images/dip_beam.png") }}" alt="" style="width:auto; height:24px;">
-                          </td>
-			  <td width='50%' style="text-align: center;" id='dip_beam'> -- </td>
+                       <td style="text-align: center;">
+                          <img id="rear_fog" class="g-img" src="{{ static_url("images/rear_fog.png") }}" alt="" style="width:auto; height:24px;">
+                       </td>
+                       <td style="text-align: center;">
+                          <img id="front_fog" class="g-img" src="{{ static_url("images/front_fog.png") }}" alt="" style="width:auto; height:24px;">
+                       </td>
 		       </tr>
-	               <tr>
-                          <td width='50%' style="text-align: center;">
-                             <img src="{{ static_url("images/main_beam.png") }}" alt="" style="width:auto; height:24px;">
-                          </td>
-			  <td width='50%' style="text-align: center;" id='main_beam'> -- </td>
-		       </tr>
-	               <tr>
-                          <td width='50%' style="text-align: center;">
-                             <img src="{{ static_url("images/full_beam.png") }}" alt="" style="width:auto; height:24px;">
-                          </td>
-			  <td width='50%' style="text-align: center;" id='full_beam'> -- </td>
-		       </tr>
-	               <tr>
-                          <td width='50%' style="text-align: center;">
-                             <img src="{{ static_url("images/rear_fog.png") }}" alt="" style="width:auto; height:24px;">
-                          </td>
-			  <td width='50%' style="text-align: center;" id='front_fog'> -- </td>
-		       </tr>
-	               <tr>
-                          <td width='50%' style="text-align: center;">
-                             <img src="{{ static_url("images/front_fog.png") }}" alt="" style="width:auto; height:24px;">
-                          </td>
-			  <td width='50%' style="text-align: center;" id='rear_fog'> -- </td>
-		       </tr>
-
 		  </table>
 	      </td>
             </tr>
@@ -191,37 +176,33 @@
 
     ws.onmessage = function(ev){
       var json = JSON.parse(ev.data);
+      var imgs = ["key_status", "hazard_lights", "handbrake", "reverse",
+        "brakes", "full_beam", "main_beam", "dip_beam", "rear_fog", "front_fog"];
 
       if (json.id=='internal1_temp') {
         var point = $('#internal_temp').highcharts().series[0].points[0];
         point.update(parseInt(json.value));
       } else if (json.id=='cpu_temp') {
-	cpug.refresh(json.value);
+	    cpug.refresh(json.value);
       } else if (json.id=='throttle') {
         throttlebar.animate((json.value/255));  // Number from 0.0 to 1.0
       } else if (json.id=='coolant_temp') {
-	coolantg.refresh(json.value);
+	    coolantg.refresh(json.value);
       } else if (json.id=='rpm') {
-	rpmg.refresh(json.value);
+	    rpmg.refresh(json.value);
       } else if (json.id=='speed') {
-	speedg.refresh(json.value);
+	    speedg.refresh(json.value);
       } else if (json.id=='external_temp') {
-	outtempg.refresh(json.value);
+	    outtempg.refresh(json.value);
       } else if (json.id=='internal_temp') {
-	intempg.refresh(json.value);
-//      } else if ((json.id=='brakes') && (json.value==1)) {
-//        alertify.error("Brakes!");
+	    intempg.refresh(json.value);
       } else if (json.id=='voice_button') {
         alertify.log("Next Track...");
-//      } else if (json.id=='key') {
-//        alertify.log("Key " + json.value);
-//      } else if (json.id=='engine_status') {
-//        alertify.log("Engine " + json.value);
       } else if (json.id=='telephone_button') {
         alertify.log("Previous Track...");
       } else if (json.id=='volumeup_button') {
         alertify.cool("Volume UP");
-      } else if (json.id=='volumedown_button') {
+     } else if (json.id=='volumedown_button') {
         alertify.cool("Volume Down");
       } else if ((json.id=='fl_door') && (json.value==1)) {
         alertify.warm("Driver Door Opened");
@@ -259,24 +240,26 @@
         alertify.warm("Rear Left Lock "+json.value);
       } else if (json.id=='rr_lock') {
         alertify.warm("Rear Right Lock "+json.value);
-      } else if (json.id=='left_temp') {
-        alertify.warm("Left Temp "+json.value);
-      } else if (json.id=='right_temp') {
-        alertify.warm("Right Temp "+json.value);
-      } else if (json.id=='fan_speed') {
-        alertify.warm("Fan Speed "+json.value);
-//      } else if ((json.id=='handbrake') && (json.value==1)) {
-//        alertify.error("Handbrake ON");
-//      } else if ((json.id=='handbrake') && (json.value==0)) {
-//        alertify.cool("Handbrake Off");
+//      } else if (json.id=='left_temp') {
+//        alertify.warm("Left Temp "+json.value);
+//      } else if (json.id=='right_temp') {
+//        alertify.warm("Right Temp "+json.value);
+//      } else if (json.id=='fan_speed') {
+//        alertify.warm("Fan Speed "+json.value);
+      } else if ((imgs.includes(json.id)) && (json.value==1)) {
+          document.getElementById(json.id).style.filter = "opacity(100%)";
+          document.getElementById(json.id).style.WebkitFilter = "opacity(100%)";
+      } else if ((imgs.includes(json.id)) && (json.value==0)) {
+          document.getElementById(json.id).style.filter = "opacity(35%)";
+          document.getElementById(json.id).style.WebkitFilter = "opacity(35%)";
       } else {
-        if (json.value==0) {
-          json.value='-';
-        } else if (json.value==1) {
-          json.value='True';
-       }
-        $('#' + json.id).text(json.value);
-        var $rowid = $('#row' + json.id);
+          if (json.value==0) {
+              json.value='-';
+          } else if (json.value==1) {
+              json.value='True';
+          }
+          $('#' + json.id).text(json.value);
+          var $rowid = $('#row' + json.id);
       }
     };
 
@@ -304,7 +287,7 @@
 			    bottomwidth: 3,
 			    color: "#7c7c7c",
 		    },
-		    symbol: "°C", label: "CPU Temp",
+		    symbol: "°C", label: "CPU Temp", labelFontColor: 'black',
 		    hideInnerShadow: true, hideMinMax: false, humandFriendly: false, 
 		    refreshAnimationTime: 500,
 	     });
@@ -327,7 +310,7 @@
 			    color: "#8e8e93",
 		    },
 		    levelColors: [ "#00fff6", "72bf43" ,"43bf58", "ff3b30"],
-		    symbol: "°C", label: "Coolant",
+		    symbol: "°C", label: "Coolant", labelFontColor: "black",
 		    hideInnerShadow: true, hideMinMax: false, humandFriendly: false, 
 		    refreshAnimationTime: 300,
 	     });
@@ -351,7 +334,7 @@
 			    color: "#8e8e93",
 		    },
 		    levelColors: [ "#00fff6", "72bf43" ,"43bf58", "ff3b30"],
-		    symbol: " km/h", label: "Speed",
+		    symbol: " km/h", label: "Speed", labelFontColor: "black",
 		    hideInnerShadow: true, hideMinMax: false, humandFriendly: false, 
 		    refreshAnimationTime: 0,
 	     });
@@ -369,7 +352,7 @@
 		    counter: false,
 		    pointer: false,
 		    levelColors: [ "#00fff6", "72bf43" ,"43bf58", "ff3b30"],
-		    label: "RPMs",
+		    label: "RPMs", labelFontColor: "black",
 		    hideInnerShadow: true, hideMinMax: false, humandFriendly: false, 
 		    refreshAnimationTime: 0,
 	     });
@@ -386,7 +369,7 @@
 		    counter: false, pointer: false, decimals: true,
 		    levelColors: [ "#00fff6", "72bf43" ,"43bf58", "ff3b30"],
 		    hideInnerShadow: true, hideMinMax: false, humandFriendly: false, 
-		    symbol: "°C", label: "Inside",
+		    symbol: "°C", label: "Inside", labelFontColor: "black",
 		    refreshAnimationTime: 1000,
 	     });
     });
@@ -401,7 +384,7 @@
 		    donut: true, gaugeWidthScale: 0.6,
 		    counter: false, pointer: false, decimals: true,
 		    levelColors: [ "#00fff6", "72bf43" ,"43bf58", "ff3b30"],
-		    symbol: "°C", label: "Outside",
+		    symbol: "°C", label: "Outside", labelFontColor: "black",
 		    hideInnerShadow: true, hideMinMax: false, humandFriendly: false, 
 		    refreshAnimationTime: 1000,
 	     });
@@ -437,7 +420,14 @@ var throttlebar = new ProgressBar.Line(throttle, {
   }
 });
 
-alertify.set({ delay: 2500 });
+alertify.set({ delay: 4000 });
+
+
+//alertify.success("Loaded!");  //Green
+//alertify.log("Loaded!");      //Black
+//alertify.error("Error!");     //Red
+//alertify.cool("Success!");    //Blue
+//alertify.warm("Success!");    //Orange
 
   </script>
 </body>

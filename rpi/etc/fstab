@@ -1,0 +1,6 @@
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+proc            /proc            proc    defaults        0       0
+tmpfs           /dev/shm         tmpfs   defaults        0       0
+/dev/mmcblk0p1  /                ext4    defaults,noatime,nodiratime,commit=60,errors=remount-ro       0       1
+# We use 5% of the memory ...i doubt we'll need swap.
+#/swap           none             swap    sw              0       0

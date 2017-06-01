@@ -10,6 +10,6 @@ Note: The project is in early alfa!
 
 * Demo
 
-![Starting the car](https://github.com/l4m3rx/carpino/blob/master/media/1.gif?raw=true)
+![Starting the car](https://github.com/l4m3rx/carpino/blob/master/media/3.gif?raw=true)
 
-![Driving around](https://github.com/l4m3rx/carpino/blob/master/media/2.gif?raw=true)
+![Driving around](https://github.com/l4m3rx/carpino/blob/master/media/4.gif?raw=true)
